@@ -5,8 +5,56 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .basic{
+      background-color: yellow;
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+    };
+    .happy{
+      border: 5px solid red;
+    }
+    .sad{
+      border: 5px solid green;
+    }
+    .smooth{
+      border-radius: 15px;
+    }
+  </style>
+  <script src="../js/vue.js"></script>
 </head>
 <body>
-  
+  <div id="root">
+
+    <!-- 绑定class样式--字符串写法，适用于：样式的类名不确定，需要动态指定 -->
+    <div class="basic" :class="style" @click="changeMood">{{name}}</div> <br/><br/>
+
+    <!-- 绑定class样式--数组写法，适用于：要绑定的样式个数不确定，名字也不确定 -->
+    <div class="basic" :class="classArr">{{name}}</div> <br/><br/>
+
+    <!-- 绑定class样式--对象写法，适用于：要绑定的样式个数确定、名字也确定，但要动态决定用不用 -->
+    <div class="basic" :class="classObj">{{name}}</div>
+
+  </div>
 </body>
+<script type="text/javascript">
+  Vue.config.productionTip = false;
+
+  const vm = new Vue({
+    el:'#root',
+    data:{
+      name:'Hello World!',
+      style:'happy',
+      classArr:{
+        
+      }
+    },
+    methods:{
+      changeMood(){
+        this.style = 'smooth';
+      }
+    }
+  })
+</script>
 </html>
