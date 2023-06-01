@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplayer is a beautiful HTML5 music player</title>
+    <link rel="stylesheet" href="APlayer.min.css">
+</head>
+<body>  
+    <input type="file" name="files[]" multiple>
+    <div id="aplayer"></div>
+</body>
+<script src="APlayer.min.js"></script>
+<script>
+    const fileInput = document.getElementById('fileInput');
+    if(fileInput){
+        fileInput.addEventListener('change', function(event) {
+            const fileList = event.target.files;
+            for (var i = 0; i < fileList.length; i++) {
+                alert(fileList[i].name);
+            }
+        });
+    }
+
+
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: true,                //是否附着页面底部，否为false
+        autoplay: true,             //是否自动播放，否为false,移动端不能生效
+        volume: 0.6,                //初始音量（0~1）
+        lrcType: 3,                 //歌词模式（1、HTML模式 2、js模式 3、lrc文件模式）
+        mutex: true,                //互斥模式：阻止多个播放器同时播放，当前播放器播放时暂停其他播放器
+        order: 'random',            //音频循环顺序（'list'：顺序, 'random'：随机）
+        preload: 'none',            //预加载（'none'：不预加载, 'metadata'：元数据, 'auto'：自动）
+        listFolded: false,          //列表默认折叠，开启为true
+        theme: '#ee8243',           //主题颜色
+        audio: [{name:'G.E.M.邓紫棋-画(Live Piano Session Ⅱ)	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/G.E.M.邓紫棋-画(Live Piano Session Ⅱ).flac',},
+                {name:'G.E.M.邓紫棋-我说了算（多芬秀发合作单曲）	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/G.E.M.邓紫棋-我说了算（多芬秀发合作单曲）.flac',},
+                {name:'Hawk Nelson-Sold Out	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/Hawk Nelson-Sold Out.flac',},
+                {name:'HITA-赤伶	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/HITA-赤伶.flac',},
+                {name:'L（桃籽）_何文宇-羡慕	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/L（桃籽）_何文宇-羡慕.flac',},
+                {name:'L（桃籽）_周林枫_三楠-晚风作酒(DJ Eva版)	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/L（桃籽）_周林枫_三楠-晚风作酒(DJ Eva版).flac',},
+                {name:'L（桃籽）-此去半生	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/L（桃籽）-此去半生.flac',},
+                {name:'LiSA-Crossing Field-《刀剑神域》TV动画第2-14集片头曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/LiSA-Crossing Field-《刀剑神域》TV动画第2-14集片头曲.flac',},
+                {name:'m.o.v.e-Rage Your Dream-《头文字D》电影片尾曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/m.o.v.e-Rage Your Dream-《头文字D》电影片尾曲.flac',},
+                {name:'Olly Murs-That Girl	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/Olly Murs-That Girl.flac',},
+                {name:'SawanoHiroyuki[nZk]_Mizuki[日本]-aLIEz	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/SawanoHiroyuki[nZk]_Mizuki[日本]-aLIEz.flac',},
+                {name:'Two Steps From Hell_Thomas Bergersen-Victory	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/Two Steps From Hell_Thomas Bergersen-Victory.flac',},
+                {name:'いきものがかり-ブルーバード-动漫《火影忍者疾风传》片头曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/いきものがかり-ブルーバード-动漫《火影忍者疾风传》片头曲.flac',},
+                {name:'阿悠悠-一曲相思	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/阿悠悠-一曲相思.mp3',},
+                {name:'白小白-爱不得忘不舍(DJ加速版)	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/白小白-爱不得忘不舍(DJ加速版).flac',},
+                {name:'浜崎あゆみ-MY ALL	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/浜崎あゆみ-MY ALL.flac',},
+                {name:'岑宁儿-追光者-《夏至未至》电视剧插曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/岑宁儿-追光者-《夏至未至》电视剧插曲.flac',},
+                {name:'陈雪凝-绿色	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/陈雪凝-绿色.flac',},
+                {name:'陈奕迅-孤勇者-《英雄联盟：双城之战》动画剧集中文主题曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/陈奕迅-孤勇者-《英雄联盟：双城之战》动画剧集中文主题曲.flac',},
+                {name:'崔子格_老猫-老婆最大	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/崔子格_老猫-老婆最大.flac',},
+                {name:'崔子格-红颜旧	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/崔子格-红颜旧.flac',},
+                {name:'崔子格-梦想明月曲-《梦想世界》游戏主题曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/崔子格-梦想明月曲-《梦想世界》游戏主题曲.flac',},
+                {name:'崔子格-在下先告辞	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/崔子格-在下先告辞.flac',},
+                {name:'动漫原声-残酷的天使纲领-《新世纪EVANGELION》插曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/动漫原声-残酷的天使纲领-《新世纪EVANGELION》插曲.flac',},
+                {name:'凤凰传奇-奢香夫人	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/凤凰传奇-奢香夫人.flac',},
+                {name:'郭美美-不怕不怕-《下一站再爱你》电影主题曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/郭美美-不怕不怕-《下一站再爱你》电影主题曲.flac',},
+                {name:'海伦-画离弦	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/海伦-画离弦.flac',},
+                {name:'花たん-only my railgun-「とある科学の超電磁砲」より	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/花たん-only my railgun-「とある科学の超電磁砲」より.flac',},
+                {name:'金莎-爱的魔法-膜法世家年度代言歌曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/金莎-爱的魔法-膜法世家年度代言歌曲.flac',},
+                {name:'柯柯柯啊-一点归鸿( 柯柯吉他版)	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/柯柯柯啊-一点归鸿( 柯柯吉他版).flac',},
+                {name:'乐洋-笔记 - 周笔畅	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/乐洋-笔记 - 周笔畅.flac',},
+                {name:'李琦-金玉良缘(TV版)	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/李琦-金玉良缘(TV版).mp3',},
+                {name:'李荣浩-乌梅子酱	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/李荣浩-乌梅子酱.flac',},
+                {name:'林俊杰-江南	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/林俊杰-江南.flac',},
+                {name:'刘珂矣-半壶纱	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/刘珂矣-半壶纱.flac',},
+                {name:'六哲_陈娟儿-错错错	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/六哲_陈娟儿-错错错.flac',},
+                {name:'马旭东-入戏太深	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/马旭东-入戏太深.flac',},
+                {name:'毛不易-牧马城市-《老男孩》电视剧片尾曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/毛不易-牧马城市-《老男孩》电视剧片尾曲.flac',},
+                {name:'秦基博-透明だった世界	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/秦基博-透明だった世界.mp3',},
+                {name:'瞿颖-加速度	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/瞿颖-加速度.flac',},
+                {name:'王力宏-大城小爱	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/王力宏-大城小爱.flac',},
+                {name:'王心凌-梦的光点-《神兵小将》动画片片头曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/王心凌-梦的光点-《神兵小将》动画片片头曲.flac',},
+                {name:'王者荣耀同人局-百战成诗-《王者荣耀》100英雄群像献礼歌	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/王者荣耀同人局-百战成诗-《王者荣耀》100英雄群像献礼歌.flac',},
+                {name:'伟伟-余小磊 - 赤伶 (DJ版)	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/伟伟-余小磊 - 赤伶 (DJ版).mp3',},
+                {name:'魏新雨-恋人心	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/魏新雨-恋人心.flac',},
+                {name:'温奕心-一路生花	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/温奕心-一路生花.flac',},
+                {name:'闻人听書_-美人画卷(DJ沈念版)	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/闻人听書_-美人画卷(DJ沈念版).flac',},
+                {name:'闻人听書_-一笑江湖	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/闻人听書_-一笑江湖.flac',},
+                {name:'闻人听書_-虞兮叹（DJ沈念）	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/闻人听書_-虞兮叹（DJ沈念）.flac',},
+                {name:'夏婉安-后来	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/夏婉安-后来.flac',},
+                {name:'祥嘞嘞-难却(吉他版)	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/祥嘞嘞-难却(吉他版).flac',},
+                {name:'小蓝背心-目及皆是你	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/小蓝背心-目及皆是你.flac',},
+                {name:'新乐尘符-123我爱你	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/新乐尘符-123我爱你.flac',},
+                {name:'徐誉滕-天使的翅膀	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/徐誉滕-天使的翅膀.flac',},
+                {name:'许巍-曾经的你-《夏洛特烦恼》电影插曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/许巍-曾经的你-《夏洛特烦恼》电影插曲.flac',},
+                {name:'严艺丹-三寸天堂-《步步惊心》电视剧片尾曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/严艺丹-三寸天堂-《步步惊心》电视剧片尾曲.flac',},
+                {name:'杨千嬅-处处吻-Budweiser American Kiss 广告主题曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/杨千嬅-处处吻-Budweiser American Kiss 广告主题曲.flac',},
+                {name:'一口甜-圈住你	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/一口甜-圈住你.flac',},
+                {name:'伊格赛听_叶里-谪仙	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/伊格赛听_叶里-谪仙.flac',},
+                {name:'银临_Aki阿杰-牵丝戏	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/银临_Aki阿杰-牵丝戏.flac',},
+                {name:'呦猫UNEKO-梦回还-《狐妖小红娘·王权篇》动画片头曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/呦猫UNEKO-梦回还-《狐妖小红娘·王权篇》动画片头曲.flac',},
+                {name:'宇桐非-擦肩而过	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/宇桐非-擦肩而过.flac',},
+                {name:'泽国同学_名龙-折风渡夜(DJ名龙版)	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/泽国同学_名龙-折风渡夜(DJ名龙版).flac',},
+                {name:'张碧晨_杨宗纬-凉凉(Live)	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/张碧晨_杨宗纬-凉凉(Live).flac',},
+                {name:'张婧-不属于我的爱	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/张婧-不属于我的爱.mp3',},
+                {name:'张靓颖-画心-《画皮》电影主题曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/张靓颖-画心-《画皮》电影主题曲.flac',},
+                {name:'张梦弘-朱丽叶的秋天	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/张梦弘-朱丽叶的秋天.flac',},
+                {name:'张韶涵-淋雨一直走	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/张韶涵-淋雨一直走.flac',},
+                {name:'张韶涵-破茧-《斗罗大陆》动画2020年新主题曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/张韶涵-破茧-《斗罗大陆》动画2020年新主题曲.flac',},
+                {name:'张信哲-过火	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/张信哲-过火.flac',},
+                {name:'张学友-烦恼歌	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/张学友-烦恼歌.flac',},
+                {name:'张振宇-最心疼的人只有你	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/张振宇-最心疼的人只有你.flac',},
+                {name:'郑伊健-友情岁月-《古惑仔I》电影主题曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/郑伊健-友情岁月-《古惑仔I》电影主题曲.flac',},
+                {name:'周笔畅-最美的期待-《茧镇奇缘》电视剧片头曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/周笔畅-最美的期待-《茧镇奇缘》电视剧片头曲.flac',},
+                {name:'周杰伦-本草纲目	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/周杰伦-本草纲目.flac',},
+                {name:'Aimer-Brave Shine-《Fate、stay night [Unlimited Blade Works] 2期》TV动画片头曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/Aimer-Brave Shine-《Fate、stay night [Unlimited Blade Works] 2期》TV动画片头曲.flac',},
+                {name:'Alan Walker_Noah Cyrus_Digital Farm Animals_Juliander-All Falls Down	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/Alan Walker_Noah Cyrus_Digital Farm Animals_Juliander-All Falls Down.flac',},
+                {name:'G.E.M.邓紫棋-穿越火线-国民枪战游戏《穿越火线》主题曲	 ',artist: 'artist',cover: 'cover.jpg',lrc:  'lrc.lrc',theme: '#eeeeee',url: '../../documents/musics/G.E.M.邓紫棋-穿越火线-国民枪战游戏《穿越火线》主题曲.flac',},
+        ]
+    });
+</script>
+</html>
